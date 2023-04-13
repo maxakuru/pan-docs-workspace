@@ -1,0 +1,106 @@
+{
+	"folders": [
+		{
+			"path": "repos/prisma-clouds-docs-website"
+		},
+		{
+			"path": "repos/prisma-clouds-docs"
+		},
+		{
+			"path": "toolchain"
+		},
+	],
+	"settings": {
+		"todohighlight.isEnable": true,
+		"todohighlight.keywords": [
+			"TODO:",
+			"KLUDGE:",
+			"NOTE:",
+			"HACK:"
+		],
+		"eslint.enable": true,
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": true
+		},
+		"eslint.validate": [
+			"javascript"
+		],
+		"[javascript]": {
+			"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+		},
+		"stylelint.enable": true,
+		"[css]": {
+			"editor.defaultFormatter": "stylelint.vscode-stylelint"
+		},
+		"terminal.integrated.profiles.osx": {
+			"zsh": {
+				"path": "/bin/zsh",
+				"args": [
+					"-l",
+					"-i"
+				]
+			}
+		}
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"type": "shell",
+				"label": "bootstrap",
+				"command": "./bootstrap.sh",
+				"options": {
+					"cwd": "${workspaceFolder:toolchain}",
+					"statusbar": {
+						"hide": true
+					},
+				},
+			},
+			{
+				"type": "shell",
+				"label": "dev:website",
+				"command": "npm run dev",
+				"options": {
+					"cwd": "${workspaceFolder:prisma-cloud-docs-website}",
+				},
+			},
+			{
+				"type": "shell",
+				"label": "dev:docs",
+				"command": "npm run dev",
+				"options": {
+					"cwd": "${workspaceFolder:prisma-cloud-docs}",
+				},
+			},
+			{
+				"type": "shell",
+				"label": "dev",
+				"command": "echo",
+				"args": [
+					"Starting dev servers"
+				],
+				"group": {
+					"kind": "none",
+					"isDefault": true
+				},
+				"dependsOrder": "parallel",
+				"dependsOn": [
+					"dev:website",
+					"dev:docs"
+				]
+			},
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"actboy168.tasks",
+			"stylelint.vscode-stylelint",
+			"dbaeumer.vscode-eslint",
+			"wayou.vscode-todo-highlight",
+			"waderyan.gitblame",
+			"bierner.jsdoc-markdown-highlighting",
+			"esbenp.prettier-vscode",
+			"Tobermory.es6-string-html"
+		]
+	}
+}
