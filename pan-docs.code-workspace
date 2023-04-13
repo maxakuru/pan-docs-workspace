@@ -1,10 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "repos/prisma-clouds-docs-website"
+			"path": "repos/prisma-cloud-docs-website"
 		},
 		{
-			"path": "repos/prisma-clouds-docs"
+			"path": "repos/prisma-cloud-docs"
 		},
 		{
 			"path": "toolchain"
